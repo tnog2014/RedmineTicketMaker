@@ -3,8 +3,13 @@
 
 Seleniumによるブラウザ操作を利用したRedmineチケット作成ツール。
 
+###特徴  
+- Seleniumでブラウザの操作をしているため機能修正・拡張を行いやすい。 
+- Redmineのバージョンアップに伴うREST APIの仕様変更の影響を受けない。
+UI変更の影響は受けるが修正は容易。
+
 ##セットアップ
-1. 必要に応じてJavaをインストールします。（Java SE7で確認）
+1. 必要に応じてJavaをインストールします。（Java SE7で動作を確認。JREがあればよいはず。）
 2. 適当な場所にgit cloneします。  
 git clone https://github.com/tnog2014/RedmineTicketMaker.git
 
