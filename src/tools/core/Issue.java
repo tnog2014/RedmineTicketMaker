@@ -82,4 +82,40 @@ public class Issue {
     public void set予定時間(String str予定時間) {
 	this.str予定時間 = str予定時間;
     }
+
+    public String toString() {
+	StringBuffer sb = new StringBuffer();
+	String[] titles = {
+		"トラッカー",
+		"題名",
+		"説明",
+		"ステータス",
+		"優先度",
+		"担当者",
+		"開始日",
+		"期限",
+		"予定時間" };
+
+	String[] items = {
+		strトラッカー,
+		str題名,
+		str説明,
+		strステータス,
+		str優先度,
+		str担当者,
+		str開始日,
+		str期限,
+		str予定時間 };
+	for (int i = 0; i < titles.length; i++) {
+	    sb.append(titles[i])
+		    .append(":[")
+		    .append(items[i])
+		    .append("]");
+	    if (i < titles.length - 1) {
+		sb.append(", ");
+	    }
+
+	}
+	return sb.toString();
+    }
 }

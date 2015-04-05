@@ -18,7 +18,7 @@ public class Base {
 	try {
 	    Thread.sleep(millisec);
 	} catch (InterruptedException e) {
-	    e.printStackTrace();
+	    // e.printStackTrace();
 	}
     }
 
@@ -64,9 +64,7 @@ public class Base {
     protected void select(By by, String input) throws TestException {
 	waitElement(by, waitTimeInMillisec);
 	WebElement we = driver.findElement(by);
-	System.out.println(we);
 	Select element = new Select(we);
-	System.out.println(element);
 	element.selectByVisibleText(input);
     }
 

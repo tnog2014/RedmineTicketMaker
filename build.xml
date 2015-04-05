@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="jar" name="RedmineTicketMaker">
+	<property environment="env" />
+	<property name="target" value="1.7" />
+	<property name="source" value="1.7" />
+	<path id="RedmineTicketMaker.classpath">
+		<pathelement location="bin" />
+		<pathelement location="lib/commons-io-2.4.jar" />
+		<pathelement location="lib/selenium-server-standalone-2.42.2.jar" />
+		<pathelement location="lib/commons-lang3-3.3.2.jar" />
+		<pathelement location="lib/commons-cli-1.2.jar" />
+	</path>
+	<target name="init">
+		<mkdir dir="bin" />
+		<copy includeemptydirs="false" todir="bin">
+			<fileset dir="src">
+				<exclude name="**/*.launch" />
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+	</target>
+	<target name="clean">
+		<delete dir="bin" />
+	</target>
+	<target depends="clean" name="cleanall" />
+	<target depends="init" name="build">
+		<echo message="${ant.project.name}: ${ant.file}" />
+		<javac debug="true" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+			<src path="src" />
+			<classpath refid="RedmineTicketMaker.classpath" />
+		</javac>
+	</target>
+	<target name="jar">
+		<jar basedir="bin" jarfile="RedmineTicketMaker.jar">
+			<manifest>
+				<attribute name="Main-Class" value="tools.Main" />
+				<attribute name="Class-Path" value="lib/commons-cli-1.2.jar lib/commons-io-2.4.jar lib/commons-lang3-3.3.2.jar lib/selenium-server-standalone-2.42.2.jar" />
+			</manifest>
+		</jar>
+	</target>
+</project>
